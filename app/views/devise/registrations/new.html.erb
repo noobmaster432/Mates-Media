@@ -1,0 +1,28 @@
+<div class="px-5 mb-4 bg-body-tertiary rounded-3 container-fluid py-3">
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field mb-3 mt-4">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+  </div>
+
+  <div class="field mb-3">
+  <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+  <% if @minimum_password_length %>
+  <em class="form-text">Your password must be atleast <%= @minimum_password_length %> characters long, contain letters and numbers, and must not contain spaces or special characters.</em>
+  <% end %><br />
+  </div>
+
+  <div class="field mb-3">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btn btn-success mb-3" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
